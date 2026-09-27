@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://machina-logic.com/sitemap.xml
