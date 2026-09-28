@@ -3,17 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact Machina Logic | Request an OT Security Briefing</title>
-<meta name="description" content="Talk to Machina Logic about securing your industrial environment. Request a confidential briefing.">
-<link rel="canonical" href="https://www.machina-logic.com/contact">
+<title>Request received | Machina Logic</title>
+<meta name="description" content="Your briefing request has been received by Machina Logic.">
+<meta name="robots" content="noindex">
 
 <meta name="theme-color" content="#17181a">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Machina Logic">
-<meta property="og:title" content="Contact Machina Logic | Request an OT Security Briefing">
-<meta property="og:description" content="Talk to Machina Logic about securing your industrial environment. Request a confidential briefing.">
-<meta property="og:url" content="https://www.machina-logic.com/contact">
-<meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMiAzMic+PHJlY3Qgd2lkdGg9JzMyJyBoZWlnaHQ9JzMyJyBmaWxsPScjMTcxODFhJy8+PHBhdGggZD0nTTUgMTN2MTRoMTFNMjcgMTlWNUgxNicgZmlsbD0nbm9uZScgc3Ryb2tlPScjM2ZkOGJlJyBzdHJva2Utd2lkdGg9JzMnLz48L3N2Zz4=">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -586,58 +580,22 @@ table.compare{ width:100%; border-collapse:collapse; min-width:640px; font-size:
 <main id="main">
 <section class="pagehero">
   <div class="wrap">
-    <p class="crumbs"><a href="index.html">Home</a><span class="sep">/</span><span>Contact</span></p>
-    <h1>Request a briefing.</h1>
-    <p class="lede">Tell us about your environment and what's on your mind. We'll arrange a confidential conversation with our team, with no obligation.</p>
+    <p class="crumbs"><a href="index.html">Home</a><span class="sep">/</span><a href="contact.html">Contact</a><span class="sep">/</span><span>Request received</span></p>
+    <h1>Thank you. Your request is in.</h1>
+    <p class="lede">A member of our team will be in touch shortly to arrange a confidential briefing. We're happy to sign an NDA before any detailed discussion.</p>
+    <div class="ctas">
+      <a href="index.html" class="btn btn-primary">Back to home <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="resources.html#it-vs-ot" class="btn btn-ghost">Read the OT security primer</a>
+    </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="wrap contact-grid">
-    <!-- Netlify Forms: submissions appear under Forms > "briefing-request" in the Netlify dashboard -->
-    <form class="form" name="briefing-request" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-      <input type="hidden" name="form-name" value="briefing-request">
-      <p hidden><label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-      <div class="field"><label for="f-name">Full name <span class="req">*</span></label><input id="f-name" name="name" autocomplete="name" required></div>
-      <div class="field"><label for="f-role">Role</label><input id="f-role" name="role" autocomplete="organization-title" placeholder="e.g. Head of Engineering"></div>
-      <div class="field"><label for="f-org">Organisation <span class="req">*</span></label><input id="f-org" name="organisation" autocomplete="organization" required></div>
-      <div class="field"><label for="f-email">Work email <span class="req">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
-      <div class="field"><label for="f-country">Country</label><input id="f-country" name="country" autocomplete="country-name" placeholder="Where are your sites?"></div>
-      <div class="field"><label for="f-sector">Sector</label>
-        <select id="f-sector" name="sector">
-          <option value="">Select a sector</option>
-          <option>Energy &amp; utilities</option><option>Oil, gas &amp; mining</option><option>Manufacturing</option>
-          <option>Water &amp; wastewater</option><option>Ports &amp; logistics</option><option>Government &amp; public sector</option><option>Other</option>
-        </select></div>
-      <div class="field"><label for="f-interest">Area of interest</label>
-        <select id="f-interest" name="interest">
-          <option value="">Select an area</option>
-          <option>Asset visibility</option><option>Threat detection &amp; monitoring</option><option>Incident response</option>
-          <option>Risk &amp; vulnerability assessment</option><option>Compliance &amp; regulatory advisory</option><option>Workforce readiness</option><option>Not sure yet</option>
-        </select></div>
-      <div class="field full"><label for="f-msg">How can we help? <span class="req">*</span></label><textarea id="f-msg" name="message" required placeholder="A short description of your environment, concerns or timeline. Please don't include sensitive technical details here."></textarea></div>
-      <label class="consent"><input type="checkbox" name="consent" value="Agreed" required><span>I agree that Machina Logic may use these details to respond to my enquiry, as described in the <a href="privacy.html">privacy notice</a>.</span></label>
-      <div class="form-actions">
-        <button type="submit" class="btn btn-primary">Send request <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-        <p class="form-status" role="status" aria-live="polite"></p>
-      </div>
-    </form>
-
-    <aside class="aside-stack">
-      <div class="panel bracket">
-        <ul class="contact-list">
-          <li><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><div><p class="k">Email</p><a href="mailto:info@machina-logic.com">info@machina-logic.com</a></div></li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><div><p class="k">Phone</p><a href="tel:+2348023948090">+234 802 394 8090</a></div></li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><div><p class="k">Headquarters</p><p>Lekki, Lagos State, Nigeria</p></div></li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg><div><p class="k">Coverage</p><p>Engagements across Africa</p></div></li>
-        </ul>
-      </div>
-      <div class="alert">
-        <svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>
-        <div><h3>Dealing with an active incident?</h3><p>Don't wait for a form reply. Call us on <a class="textlink" href="tel:+2348023948090" style="display:inline">+234 802 394 8090</a> and tell us it's an incident.</p></div>
-      </div>
-    </aside>
+<section class="section tight">
+  <div class="wrap">
+    <div class="alert" style="max-width:760px">
+      <svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>
+      <div><h3>Dealing with an active incident?</h3><p>Don't wait for us to reply. Call us now on <a class="textlink" href="tel:+2348023948090" style="display:inline">+234 802 394 8090</a> and tell us it's an incident.</p></div>
+    </div>
   </div>
 </section>
 
@@ -654,8 +612,6 @@ table.compare{ width:100%; border-collapse:collapse; min-width:640px; font-size:
     </div>
   </div>
 </section>
-
-
 </main>
 <footer class="site-footer">
   <div class="wrap footer-grid">
