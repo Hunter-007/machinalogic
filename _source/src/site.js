@@ -78,33 +78,42 @@
   /* current year */
   d.querySelectorAll('[data-year]').forEach(function(el){ el.textContent = new Date().getFullYear(); });
 
-  /* contact form: composes an email in the visitor's mail client.
-     To collect submissions on a server instead, set the form's action to your
-     form endpoint (e.g. Formspree, Basin, Netlify Forms) and remove data-mailto. */
-  var form = d.querySelector('form[data-mailto]');
+  /* contact form: sends the enquiry to Netlify Forms, then shows the thank-you page.
+     Submissions are stored in Netlify (Forms > briefing-request) and emailed to you
+     via Site configuration > Notifications > Form submission notifications.
+     If JavaScript is off, the form still posts to Netlify normally. */
+  var form = d.querySelector('form[data-netlify]');
   if(form){
     var status = form.querySelector('.form-status');
+    var submit = form.querySelector('button[type="submit"]');
+    var sending = false;
     form.addEventListener('submit', function(e){
       e.preventDefault();
+      if(sending) return;
       if(!form.checkValidity()){ form.reportValidity(); return; }
-      var f = new FormData(form);
-      var get = function(k){ return (f.get(k) || '').toString().trim(); };
-      var subject = 'Briefing request: ' + (get('organisation') || get('name'));
-      var body = [
-        'Name: ' + get('name'),
-        'Role: ' + get('role'),
-        'Organisation: ' + get('organisation'),
-        'Email: ' + get('email'),
-        'Phone: ' + get('phone'),
-        'Country: ' + get('country'),
-        'Sector: ' + get('sector'),
-        'Area of interest: ' + get('interest'),
-        '',
-        get('message')
-      ].join('\n');
-      window.location.href = 'mailto:' + form.getAttribute('data-mailto') +
-        '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      if(status){ status.textContent = 'Opening your email app with your message ready to send…'; }
+
+      sending = true;
+      if(submit){ submit.disabled = true; }
+      if(status){ status.classList.remove('is-error'); status.textContent = 'Sending your request…'; }
+
+      var body = new URLSearchParams(new FormData(form)).toString();
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      })
+      .then(function(res){
+        if(!res.ok){ throw new Error('HTTP ' + res.status); }
+        window.location.href = form.getAttribute('action') || '/thank-you';
+      })
+      .catch(function(){
+        sending = false;
+        if(submit){ submit.disabled = false; }
+        if(status){
+          status.classList.add('is-error');
+          status.innerHTML = 'Sorry, your request could not be sent. Please try again, or email us at <a href="mailto:info@machina-logic.com">info@machina-logic.com</a>.';
+        }
+      });
     });
   }
 })();

@@ -8,7 +8,9 @@
 
 <section class="section">
   <div class="wrap contact-grid">
-    <form class="form" data-mailto="{{EMAIL}}" novalidate>
+    <form class="form" name="briefing-request" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="briefing-request">
+      <p hidden><label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <div class="field"><label for="f-name">Full name <span class="req">*</span></label><input id="f-name" name="name" autocomplete="name" required></div>
       <div class="field"><label for="f-role">Role</label><input id="f-role" name="role" autocomplete="organization-title" placeholder="e.g. Head of Engineering"></div>
       <div class="field"><label for="f-org">Organisation <span class="req">*</span></label><input id="f-org" name="organisation" autocomplete="organization" required></div>
@@ -28,7 +30,7 @@
           <option>Risk &amp; vulnerability assessment</option><option>Compliance &amp; regulatory advisory</option><option>Workforce readiness</option><option>Not sure yet</option>
         </select></div>
       <div class="field full"><label for="f-msg">How can we help? <span class="req">*</span></label><textarea id="f-msg" name="message" required placeholder="A short description of your environment, concerns or timeline. Please don't include sensitive technical details here."></textarea></div>
-      <label class="consent"><input type="checkbox" name="consent" required><span>I agree that Machina Logic may use these details to respond to my enquiry, as described in the <a href="privacy.html">privacy notice</a>.</span></label>
+      <label class="consent"><input type="checkbox" name="consent" value="Agreed" required><span>I agree that Machina Logic may use these details to respond to my enquiry, as described in the <a href="privacy.html">privacy notice</a>.</span></label>
       <div class="form-actions">
         <button type="submit" class="btn btn-primary">Send request <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
         <p class="form-status" role="status" aria-live="polite"></p>
