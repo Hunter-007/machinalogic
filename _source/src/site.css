@@ -102,6 +102,8 @@ svg.sprite{ position:absolute; width:0; height:0; overflow:hidden; }
 }
 .btn .ico{ width:16px; height:16px; transition:transform .2s; }
 .btn:hover .ico{ transform:translateX(3px); }
+.btn[disabled]{ opacity:.6; cursor:wait; }
+.btn[disabled]:hover .ico{ transform:none; }
 .btn-primary{ background:var(--teal); color:#0c1211; }
 .btn-primary:hover{ background:#6ae6d1; }
 .btn-ghost{ background:rgba(255,255,255,.02); color:var(--ink); box-shadow:inset 0 0 0 1px var(--line); }
@@ -409,6 +411,8 @@ table.compare{ width:100%; border-collapse:collapse; min-width:640px; font-size:
 .consent a{ color:var(--teal); }
 .form-actions{ grid-column:1 / -1; display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
 .form-status{ font-size:14px; color:var(--teal); }
+.form-status.is-error{ color:var(--amber); }
+.form-status a{ text-decoration:underline; }
 .aside-stack{ display:grid; gap:24px; }
 .contact-list li{ display:flex; gap:16px; padding:16px 0; border-bottom:1px solid var(--line-soft); position:relative; z-index:2; }
 .contact-list li:first-child{ padding-top:0; }
