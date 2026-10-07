@@ -1,66 +1,74 @@
-<section class="pagehero">
-  <div class="wrap pagehero-grid">
+<section class="phero">
+  <div class="wrap phero-grid">
+    <span class="node" data-kind="source" aria-hidden="true"></span>
     <div>
-      <p class="crumbs"><a href="index.html">Home</a><span class="sep">/</span><span>Resources</span></p>
-      <h1>OT security, explained.</h1>
-      <p class="lede">A practical primer for executives, engineers and IT leaders: what operational technology is, why securing it is different, and the frameworks and regulations that shape the work.</p>
+      <p class="crumbs"><a href="index.html">Home</a><span>Resources</span></p>
+      <h1 class="lift"><span><span>OT security,</span></span> <span><span>explained.</span></span></h1>
+      <p class="lede">A practical primer for executives, engineers and IT leaders: what operational technology is, why securing it is different, and the frameworks and regulations that shape the work. About ten minutes to read.</p>
     </div>
-    <div class="panel bracket kv">
-      <div class="line"><span>Audience</span><span>Executives, engineers, IT &amp; security teams</span></div>
-      <div class="line"><span>Reading time</span><span>About 10 minutes</span></div>
-    </div>
+    <figure class="art phero-art" data-art>{{SVC:detection|Illustration: a process trend line with one spike outside the normal band, flagged as not in baseline.}}</figure>
   </div>
   <div class="wrap">
-    <nav class="chipnav" aria-label="Sections on this page">
-      <a href="#what-is-ot">What is OT?</a><a href="#purdue">The Purdue model</a><a href="#it-vs-ot">IT vs OT</a><a href="#frameworks">Frameworks</a><a href="#regulation">African regulation</a><a href="#glossary">Glossary</a>
-    </nav>
+    <ul class="jump" aria-label="Sections on this page">
+      <li><a href="#what-is-ot"><span class="plate">What is OT?</span></a></li>
+      <li><a href="#purdue"><span class="plate">The Purdue model</span></a></li>
+      <li><a href="#it-vs-ot"><span class="plate">IT vs OT</span></a></li>
+      <li><a href="#frameworks"><span class="plate">Frameworks</span></a></li>
+      <li><a href="#regulation"><span class="plate">African regulation</span></a></li>
+      <li><a href="#glossary"><span class="plate">Glossary</span></a></li>
+    </ul>
   </div>
 </section>
 
-<section class="section" id="what-is-ot">
+<section class="sec" id="what-is-ot">
   <div class="wrap split">
-    <div class="sticky">
-      <p class="eyebrow">01 · Primer</p>
-      <h2 class="h2">What is operational technology?</h2>
-    </div>
+    <span class="node" data-kind="breaker" aria-hidden="true"></span>
+    <div class="sticky"><h2>What is operational technology?</h2></div>
     <div class="prose">
       <p>Operational technology (OT) is the hardware and software that monitors and controls physical processes: the controllers that open valves, the systems that balance a power grid, the screens operators use to run a treatment works. Industrial control systems (ICS), including SCADA and distributed control systems (DCS), are the core of OT.</p>
       <p>For decades, these systems were isolated from the outside world. That is no longer true. <strong>Remote monitoring, cloud analytics, vendor support and business reporting have connected OT to corporate networks and the internet</strong>, often without the security architecture to match.</p>
-      <p>Many of these systems were designed for reliability, not security. Common industrial protocols such as Modbus were created without authentication, and controllers often run for decades on software that can't be easily patched. Securing them requires a different approach from corporate IT.</p>
+      <p>Many of these systems were designed for reliability, not security. Common industrial protocols such as Modbus were created without authentication, and controllers often run for decades on software that can't be easily patched. Securing them takes a different approach from corporate IT.</p>
     </div>
   </div>
 </section>
 
-<section class="section" id="purdue">
+<section class="sec purdue-sec" data-scrub id="purdue" aria-labelledby="purdue-title">
+    <div class="wrap purdue-grid">
+      <span class="node" data-kind="transformer" aria-hidden="true"></span>
+      <div>
+        <h2 id="purdue-title">The Purdue model, taken apart.</h2>
+        <p class="dek" style="margin-top:16px">The Purdue reference model organises an industrial network into levels, from the physical process at the bottom to enterprise IT at the top. It's the common language for deciding what should talk to what.</p>
+        <ul class="levels">
+          <li class="levels-zone">Enterprise zone (IT)</li>
+          <li><span class="lv">L5/L4</span><strong>Enterprise &amp; business</strong><span>Email, ERP, business planning, internet access, corporate data centre and cloud</span></li>
+          <li class="dmz"><span class="lv">L3.5</span><strong>IT/OT DMZ</strong><span>Brokered exchange: jump hosts, historian replicas, patch staging. No direct IT-to-control traffic.</span></li>
+          <li class="levels-zone">Manufacturing and control zone (OT)</li>
+          <li><span class="lv">L3</span><strong>Site operations</strong><span>Historians, engineering workstations, site-wide production management</span></li>
+          <li><span class="lv">L2</span><strong>Supervisory control</strong><span>HMIs, SCADA servers and operator workstations</span></li>
+          <li><span class="lv">L1</span><strong>Basic control</strong><span>PLCs, RTUs, DCS controllers and safety systems</span></li>
+          <li><span class="lv">L0</span><strong>Physical process</strong><span>Sensors, actuators, motors, valves and drives</span></li>
+        </ul>
+      </div>
+      <div class="purdue-col"><figure class="art purdue-art" data-art>{{ART:purdue}}</figure></div>
+    </div>
+</section>
+
+<section class="sec tight">
   <div class="wrap">
-    <div class="section-head">
-      <div><p class="eyebrow">02 · Architecture</p><h2>The Purdue model, in one view.</h2></div>
-      <p class="dek">The Purdue reference model organises an industrial network into levels, from physical process at the bottom to enterprise IT at the top. It's the common language for designing segmentation and deciding what should talk to what.</p>
-    </div>
-    <div class="purdue reveal">
-      <div class="p-group">Enterprise zone (IT)</div>
-      <div class="p-row it"><span class="lvl">L5 / L4</span><span class="name">Enterprise &amp; business</span><span class="ex">Email, ERP, business planning, internet access, corporate data centre and cloud</span></div>
-      <div class="p-group">Demilitarised zone</div>
-      <div class="p-row dmz"><span class="lvl">L3.5</span><span class="name">IT/OT DMZ</span><span class="ex">Brokered data exchange: jump hosts, historian replicas, patch and antivirus staging. No direct IT-to-control traffic.</span></div>
-      <div class="p-group">Manufacturing / control zone (OT)</div>
-      <div class="p-row"><span class="lvl">L3</span><span class="name">Site operations</span><span class="ex">Historians, engineering workstations, site-wide supervisory and production management</span></div>
-      <div class="p-row"><span class="lvl">L2</span><span class="name">Supervisory control</span><span class="ex">HMIs, SCADA servers and operator workstations for an area or process</span></div>
-      <div class="p-row"><span class="lvl">L1</span><span class="name">Basic control</span><span class="ex">PLCs, RTUs, DCS controllers and safety instrumented systems that execute control logic</span></div>
-      <div class="p-row"><span class="lvl">L0</span><span class="name">Physical process</span><span class="ex">Sensors, actuators, motors, valves and drives that touch the physical world</span></div>
-    </div>
-    <p class="note"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Modern environments with cloud services, IIoT devices and wireless links don't always fit neatly into these levels, but the model remains the most widely used starting point for segmentation design.</p>
+    <p class="note"><svg class="ico" aria-hidden="true"><use href="#i-warn"/></svg>Modern environments with cloud services, IIoT devices and wireless links don't always fit neatly into these levels, but the model remains the most widely used starting point for segmentation design.</p>
   </div>
 </section>
 
-<section class="section" id="it-vs-ot">
+<section class="sec" id="it-vs-ot">
   <div class="wrap">
-    <div class="section-head">
-      <div><p class="eyebrow">03 · Differences</p><h2>Why IT security doesn't transfer directly.</h2></div>
+    <header class="sec-head">
+      <span class="node" data-kind="breaker" aria-hidden="true"></span>
+      <h2>Why IT security doesn't transfer directly.</h2>
       <p class="dek">The same tools and habits that protect an office network can, applied carelessly, stop a production line.</p>
-    </div>
-    <div class="table-wrap reveal">
-      <table class="compare">
-        <thead><tr><th scope="col"></th><th scope="col">Corporate IT</th><th scope="col" class="ot">Operational technology</th></tr></thead>
+    </header>
+    <div class="spec">
+      <table class="spec-table">
+        <thead><tr><th scope="col"><span class="sr">Topic</span></th><th scope="col">Corporate IT</th><th scope="col" class="ot">Operational technology</th></tr></thead>
         <tbody>
           <tr><th scope="row">First priority</th><td>Confidentiality of data</td><td class="ot">Safety and availability of the physical process</td></tr>
           <tr><th scope="row">Patching</th><td>Days to weeks, often automated</td><td class="ot">Months to years, tied to planned outages and vendor approval</td></tr>
@@ -75,29 +83,31 @@
   </div>
 </section>
 
-<section class="section" id="frameworks">
+<section class="sec" id="frameworks">
   <div class="wrap">
-    <div class="section-head">
-      <div><p class="eyebrow">04 · Frameworks</p><h2>The frameworks that matter for OT.</h2></div>
+    <header class="sec-head">
+      <span class="node" data-kind="breaker" aria-hidden="true"></span>
+      <h2>The frameworks that matter for OT.</h2>
       <p class="dek">No single standard covers everything. These are the references most organisations use to structure an OT security programme.</p>
-    </div>
-    <div class="gl c2">
-      <div class="card reveal"><span class="num">INTERNATIONAL STANDARD</span><h3>ISA/IEC 62443</h3><p>A series of standards for the security of industrial automation and control systems, covering asset owners, system integrators and product suppliers. Introduces key concepts such as zones and conduits and security levels.</p></div>
-      <div class="card reveal"><span class="num">GUIDANCE</span><h3>NIST SP 800-82 Rev. 3</h3><p>The US National Institute of Standards and Technology's Guide to Operational Technology Security, updated in 2023. Widely used worldwide as a practical reference for securing OT environments.</p></div>
-      <div class="card reveal"><span class="num">MANAGEMENT SYSTEM</span><h3>ISO/IEC 27001</h3><p>The international standard for information security management systems. Designed for IT, but often extended to cover OT governance when combined with IEC 62443.</p></div>
-      <div class="card reveal"><span class="num">SECTOR REFERENCE</span><h3>NERC CIP</h3><p>Mandatory cybersecurity standards for the bulk electric system in North America. Not applicable in Africa, but a useful reference model for utilities and energy regulators.</p></div>
+    </header>
+    <div class="cols" style="--n:2">
+      <div><p class="kind">International standard</p><h3>ISA/IEC 62443</h3><p>A series of standards for the security of industrial automation and control systems, covering asset owners, system integrators and product suppliers. Introduces zones and conduits, and security levels.</p></div>
+      <div><p class="kind">Guidance</p><h3>NIST SP 800-82 Rev. 3</h3><p>The US National Institute of Standards and Technology's Guide to Operational Technology Security, updated in 2023. Widely used worldwide as a practical reference.</p></div>
+      <div><p class="kind">Management system</p><h3>ISO/IEC 27001</h3><p>The international standard for information security management systems. Designed for IT, but often extended to cover OT governance when combined with IEC 62443.</p></div>
+      <div><p class="kind">Sector reference</p><h3>NERC CIP</h3><p>Mandatory cybersecurity standards for the bulk electric system in North America. Not applicable in Africa, but a useful reference for utilities and energy regulators.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section" id="regulation">
+<section class="sec" id="regulation">
   <div class="wrap">
-    <div class="section-head">
-      <div><p class="eyebrow">05 · Regulation</p><h2>A snapshot of the African regulatory landscape.</h2></div>
+    <header class="sec-head">
+      <span class="node" data-kind="breaker" aria-hidden="true"></span>
+      <h2>The African regulatory landscape.</h2>
       <p class="dek">Cybersecurity and data protection law is developing quickly across the continent. A few of the key instruments organisations encounter:</p>
-    </div>
-    <div class="table-wrap reveal">
-      <table class="compare">
+    </header>
+    <div class="spec">
+      <table class="spec-table">
         <thead><tr><th scope="col">Jurisdiction</th><th scope="col" class="ot">Key instruments</th><th scope="col">Relevance</th></tr></thead>
         <tbody>
           <tr><th scope="row">African Union</th><td class="ot">Convention on Cyber Security and Personal Data Protection (Malabo Convention, 2014), in force since 2023</td><td>Continental framework for cybersecurity and data protection</td></tr>
@@ -108,26 +118,27 @@
         </tbody>
       </table>
     </div>
-    <p class="note"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>This overview is for general information only and is not legal advice. Sector regulators often issue additional requirements. Always confirm obligations with qualified counsel.</p>
+    <p class="note"><svg class="ico" aria-hidden="true"><use href="#i-warn"/></svg>This overview is general information, not legal advice. Sector regulators often issue additional requirements. Always confirm obligations with qualified counsel.</p>
   </div>
 </section>
 
-<section class="section" id="glossary">
+<section class="sec" id="glossary">
   <div class="wrap">
-    <div class="section-head">
-      <div><p class="eyebrow">06 · Glossary</p><h2>OT terms, in plain language.</h2></div>
-    </div>
+    <header class="sec-head">
+      <span class="node" data-kind="breaker" aria-hidden="true"></span>
+      <h2>OT terms, in plain language.</h2>
+    </header>
     <dl class="glossary">
-      <div class="reveal"><dt>PLC <span class="mono">Programmable logic controller</span></dt><dd>A rugged industrial computer that runs control logic, reading sensors and driving actuators such as motors and valves.</dd></div>
-      <div class="reveal"><dt>RTU <span class="mono">Remote terminal unit</span></dt><dd>A field device that collects data and executes commands at remote sites, such as substations or pumping stations.</dd></div>
-      <div class="reveal"><dt>HMI <span class="mono">Human-machine interface</span></dt><dd>The screens and software operators use to view and control a process.</dd></div>
-      <div class="reveal"><dt>SCADA</dt><dd>Supervisory control and data acquisition: systems that monitor and control geographically dispersed assets such as pipelines and grids.</dd></div>
-      <div class="reveal"><dt>DCS <span class="mono">Distributed control system</span></dt><dd>An integrated control system common in continuous processes such as refining, chemicals and power generation.</dd></div>
-      <div class="reveal"><dt>SIS <span class="mono">Safety instrumented system</span></dt><dd>An independent system that brings a process to a safe state when dangerous conditions are detected. The last line of defence.</dd></div>
-      <div class="reveal"><dt>Historian</dt><dd>A database that records process data over time, often bridging OT data to business users.</dd></div>
-      <div class="reveal"><dt>Engineering workstation</dt><dd>A computer used to program and configure controllers. A high-value target because it can change control logic.</dd></div>
-      <div class="reveal"><dt>IT/OT DMZ</dt><dd>A buffer network between corporate IT and OT, so that no traffic passes directly between the two.</dd></div>
-      <div class="reveal"><dt>Zones &amp; conduits</dt><dd>An IEC 62443 concept: group assets with similar security needs into zones, and tightly control communication between them through conduits.</dd></div>
+      <div><dt>PLC <span>Programmable logic controller</span></dt><dd>A rugged industrial computer that runs control logic, reading sensors and driving actuators such as motors and valves.</dd></div>
+      <div><dt>RTU <span>Remote terminal unit</span></dt><dd>A field device that collects data and executes commands at remote sites, such as substations or pumping stations.</dd></div>
+      <div><dt>HMI <span>Human-machine interface</span></dt><dd>The screens and software operators use to view and control a process.</dd></div>
+      <div><dt>SCADA <span>Supervisory control and data acquisition</span></dt><dd>Systems that monitor and control geographically dispersed assets such as pipelines and grids.</dd></div>
+      <div><dt>DCS <span>Distributed control system</span></dt><dd>An integrated control system common in continuous processes such as refining, chemicals and power generation.</dd></div>
+      <div><dt>SIS <span>Safety instrumented system</span></dt><dd>An independent system that brings a process to a safe state when dangerous conditions are detected. The last line of defence.</dd></div>
+      <div><dt>Historian</dt><dd>A database that records process data over time, often bridging OT data to business users.</dd></div>
+      <div><dt>Engineering workstation</dt><dd>A computer used to program and configure controllers. A high-value target because it can change control logic.</dd></div>
+      <div><dt>IT/OT DMZ</dt><dd>A buffer network between corporate IT and OT, so that no traffic passes directly between the two.</dd></div>
+      <div><dt>Zones &amp; conduits</dt><dd>An IEC 62443 concept: group assets with similar security needs into zones, and tightly control communication between them through conduits.</dd></div>
     </dl>
   </div>
 </section>
