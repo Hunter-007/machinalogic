@@ -29,7 +29,7 @@
       <div class="field"><label for="f-interest">Area of interest</label>
         <select id="f-interest" name="interest">
           <option value="">Select an area</option>
-          <option>Asset visibility</option><option>Threat detection &amp; monitoring</option><option>Incident response</option>
+          <option value="BlastShield demo or trial" data-key="blastshield">BlastShield demo or trial (BlastWave)</option><option>Asset visibility</option><option>Threat detection &amp; monitoring</option><option>Incident response</option>
           <option>Risk &amp; vulnerability assessment</option><option>Compliance &amp; regulatory advisory</option><option>Workforce readiness</option><option>Not sure yet</option>
         </select></div>
       <div class="field full"><label for="f-msg">How can we help? <span class="req">*</span></label><textarea id="f-msg" name="message" required placeholder="A short description of your environment, concerns or timeline. Please don't include sensitive technical details here."></textarea></div>
@@ -69,3 +69,4 @@
     <span class="node end-node" data-kind="earth" aria-hidden="true"></span>
   </div>
 </section>
+<script>(function(){try{var q=new URLSearchParams(location.search).get("interest")||(location.hash||"").slice(1);if(q){var o=document.querySelector('#f-interest option[data-key="'+q+'"]');if(o){o.selected=true;}}}catch(e){}})();</script>
