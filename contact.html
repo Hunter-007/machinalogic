@@ -665,6 +665,57 @@ figcaption{ font-size:14px; color:var(--ink-2); margin-top:14px; max-width:46em;
   ::view-transition-old(root),::view-transition-new(root){ animation:none; }
 }
 
+/* ---------- BlastShield product page + product spotlight ---------- */
+.partner-tag{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:0 0 22px; }
+.partner-tag .by{ font-weight:700; font-size:15px; color:var(--ink-2); letter-spacing:.02em; }
+.kind-tag{ font-size:14px; font-weight:700; color:var(--flow); margin:0 0 12px; }
+.sequence .closer{ display:inline-block; margin-top:4px; font-weight:700; font-size:15px; color:var(--ink); padding:4px 10px; background:var(--hazard); border-radius:3px; }
+.facts dd.big{ font-size:clamp(40px,4vw,64px); line-height:.95; }
+.ratios{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin:8px 0 18px; }
+.ratios div{ background:var(--ink); color:var(--paper); border-radius:6px; padding:18px 18px 16px; }
+.ratios strong{ display:block; font:900 clamp(40px,4.4vw,68px)/.9 var(--display); color:var(--hazard); }
+.ratios span{ display:block; margin-top:8px; font-size:15.5px; }
+.note-sm{ font-size:14px; color:var(--ink-2); }
+.cols .ticks{ margin-top:14px; }
+.cols .ticks li{ font-size:16px; }
+/* hero: probes that get no answer */
+.bs-hero .cloak{ fill:rgba(255,194,26,.14); stroke:var(--ink); stroke-width:2; stroke-dasharray:8 6; }
+.art .probe{ stroke-width:2.4; stroke-dasharray:1 1; stroke-dashoffset:1; animation:probe 3.6s var(--ease) infinite; animation-delay:var(--o,0s); }
+.art .xmark{ stroke-width:2.6; opacity:0; animation:xmark 3.6s steps(1) infinite; animation-delay:var(--o,0s); }
+.art .ntag{ opacity:0; animation:ntag 3.6s ease infinite; }
+.art .ntag rect{ fill:var(--ink); }
+.art .ntag text{ font:700 12.5px var(--text); fill:var(--paper); }
+@keyframes probe{ 0%{ stroke-dashoffset:1; opacity:1; } 35%{ stroke-dashoffset:0; opacity:1; } 70%{ stroke-dashoffset:0; opacity:.25; } 100%{ stroke-dashoffset:0; opacity:0; } }
+@keyframes xmark{ 0%,34%{ opacity:0; } 36%,80%{ opacity:1; } 82%,100%{ opacity:0; } }
+@keyframes ntag{ 0%,40%{ opacity:0; } 48%,80%{ opacity:1; } 90%,100%{ opacity:0; } }
+/* cloaking sweep in live red */
+.bs-sweep .sweepfill{ fill:var(--live); opacity:.07; }
+/* microsegmentation */
+.art-svg .iso-static{ fill:rgba(255,194,26,.12); stroke:var(--ink); stroke-width:2; stroke-dasharray:8 6; }
+.art .lateral{ stroke-width:2.6; stroke-dasharray:1 1; stroke-dashoffset:1; animation:probe 3.6s var(--ease) infinite; animation-delay:var(--o,0s); }
+/* venn */
+.venn .vc{ fill:var(--flow); fill-opacity:.1; stroke:var(--ink); stroke-width:2.2; }
+.venn .vc2{ fill:var(--paper); stroke:var(--ink); stroke-width:2; stroke-dasharray:6 6; }
+.venn .vlbl{ font:800 21px var(--display); fill:var(--ink); }
+#overlap .art{ background:var(--paper); border-radius:6px; padding:clamp(12px,2vw,28px); }
+/* spotlight band used on home and services */
+.spot{ background:var(--paper); border-top:6px solid var(--ink); border-bottom:6px solid var(--ink); }
+.spot-grid{ display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:clamp(28px,5vw,80px); align-items:center; }
+.spot-grid .node{ top:clamp(64px,10vh,120px); }
+.spot h2{ font-size:clamp(40px,4.6vw,80px); margin:18px 0 22px; }
+.spot .plates{ margin-top:22px; }
+.spot-layers{ list-style:none; margin:0; padding:0; border-top:6px solid var(--ink); }
+.spot-layers li{ display:grid; grid-template-columns:62px minmax(0,1fr); gap:4px 16px; padding:16px 0; border-bottom:1.5px solid var(--line); }
+.spot-layers b{ font:850 30px/1 var(--display); grid-row:span 2; }
+.spot-layers strong{ font:800 24px/1.05 var(--display); }
+.spot-layers span{ color:var(--ink-2); font-size:16px; }
+@media (max-width:1080px){ .spot-grid{ grid-template-columns:minmax(0,1fr); } }
+@media (max-width:760px){ .ratios{ grid-template-columns:minmax(0,1fr); } }
+@media (prefers-reduced-motion:reduce){ .art .probe,.art .lateral{ stroke-dashoffset:0; } .art .xmark,.art .ntag{ opacity:1; } }
+.ft-new{ display:inline-block; margin-left:6px; padding:1px 7px; border-radius:3px; background:var(--hazard); color:var(--ink); font-size:12px; font-weight:700; vertical-align:2px; }
+.footer-brand .ft-partner{ margin-top:12px; font-size:15px; }
+.footer-brand .ft-partner a{ color:var(--hazard); font-weight:700; }
+
 </style>
 
 </head>
@@ -682,7 +733,7 @@ figcaption{ font-size:14px; color:var(--ink-2); margin-top:14px; max-width:46em;
 <header class="site-header">
   <div class="bar">
     <a href="index.html" class="brand" aria-label="Machina Logic home"><span class="logo" role="img" aria-label="Machina Logic"></span></a>
-    <nav class="navlinks" aria-label="Primary"><a href="services.html">Services</a><a href="industries.html">Industries</a><a href="resources.html">Resources</a><a href="about.html">About</a></nav>
+    <nav class="navlinks" aria-label="Primary"><a href="services.html">Services</a><a href="blastshield.html">BlastShield</a><a href="industries.html">Industries</a><a href="resources.html">Resources</a><a href="about.html">About</a></nav>
     <a href="contact.html" class="btn btn-go nav-cta">Request a briefing</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
       <svg class="ico ico-open" aria-hidden="true"><use href="#i-menu"/></svg><svg class="ico ico-close" aria-hidden="true"><use href="#i-close"/></svg>
@@ -690,7 +741,7 @@ figcaption{ font-size:14px; color:var(--ink-2); margin-top:14px; max-width:46em;
   </div>
 </header>
 <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile" hidden>
-  <div class="m-links"><a class="m-link" href="index.html" style="--i:0">Home</a><a class="m-link" href="services.html" style="--i:1">Services</a><a class="m-link" href="industries.html" style="--i:2">Industries</a><a class="m-link" href="resources.html" style="--i:3">Resources</a><a class="m-link" href="about.html" style="--i:4">About</a><a class="m-link" href="contact.html" style="--i:5">Contact</a></div>
+  <div class="m-links"><a class="m-link" href="index.html" style="--i:0">Home</a><a class="m-link" href="services.html" style="--i:1">Services</a><a class="m-link" href="blastshield.html" style="--i:2">BlastShield</a><a class="m-link" href="industries.html" style="--i:3">Industries</a><a class="m-link" href="resources.html" style="--i:4">Resources</a><a class="m-link" href="about.html" style="--i:5">About</a><a class="m-link" href="contact.html" style="--i:6">Contact</a></div>
   <a href="contact.html" class="btn btn-go">Request a briefing</a>
   <div class="m-contact"><a href="mailto:info@machina-logic.com">info@machina-logic.com</a><a href="tel:+2348023948090">+234 802 394 8090</a></div>
 </nav>
@@ -726,7 +777,7 @@ figcaption{ font-size:14px; color:var(--ink-2); margin-top:14px; max-width:46em;
       <div class="field"><label for="f-interest">Area of interest</label>
         <select id="f-interest" name="interest">
           <option value="">Select an area</option>
-          <option>Asset visibility</option><option>Threat detection &amp; monitoring</option><option>Incident response</option>
+          <option value="BlastShield demo or trial" data-key="blastshield">BlastShield demo or trial (BlastWave)</option><option>Asset visibility</option><option>Threat detection &amp; monitoring</option><option>Incident response</option>
           <option>Risk &amp; vulnerability assessment</option><option>Compliance &amp; regulatory advisory</option><option>Workforce readiness</option><option>Not sure yet</option>
         </select></div>
       <div class="field full"><label for="f-msg">How can we help? <span class="req">*</span></label><textarea id="f-msg" name="message" required placeholder="A short description of your environment, concerns or timeline. Please don't include sensitive technical details here."></textarea></div>
@@ -766,6 +817,7 @@ figcaption{ font-size:14px; color:var(--ink-2); margin-top:14px; max-width:46em;
     <span class="node end-node" data-kind="earth" aria-hidden="true"></span>
   </div>
 </section>
+<script>(function(){try{var q=new URLSearchParams(location.search).get("interest")||(location.hash||"").slice(1);if(q){var o=document.querySelector('#f-interest option[data-key="'+q+'"]');if(o){o.selected=true;}}}catch(e){}})();</script>
 
 
 </main>
@@ -775,14 +827,15 @@ figcaption{ font-size:14px; color:var(--ink-2); margin-top:14px; max-width:46em;
       <a href="index.html" aria-label="Machina Logic home"><span class="logo logo-light" role="img" aria-label="Machina Logic"></span></a>
       <p>Operational technology security for the plants, grids, mines, ports and water works that keep African economies running.</p>
       <p class="plate plate-hz">Lagos HQ, working across Africa</p>
+      <p class="ft-partner">Authorised <a href="blastshield.html">BlastWave partner</a></p>
     </div>
     <div>
       <h3>Company</h3>
       <ul><li><a href="about.html">About</a></li><li><a href="industries.html">Industries</a></li><li><a href="resources.html">Resources</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy notice</a></li></ul>
     </div>
     <div>
-      <h3>Services</h3>
-      <ul><li><a href="services.html#asset-visibility">Asset visibility</a></li><li><a href="services.html#threat-detection">Threat detection &amp; monitoring</a></li><li><a href="services.html#incident-response">Incident response</a></li><li><a href="services.html#risk-assessment">Risk &amp; vulnerability assessment</a></li><li><a href="services.html#compliance">Compliance &amp; regulatory advisory</a></li><li><a href="services.html#workforce">Workforce readiness</a></li></ul>
+      <h3>Products &amp; services</h3>
+      <ul><li><a href="blastshield.html">BlastShield OT Zero Trust <span class="ft-new">New</span></a></li><li><a href="services.html#asset-visibility">Asset visibility</a></li><li><a href="services.html#threat-detection">Threat detection &amp; monitoring</a></li><li><a href="services.html#incident-response">Incident response</a></li><li><a href="services.html#risk-assessment">Risk &amp; vulnerability assessment</a></li><li><a href="services.html#compliance">Compliance &amp; regulatory advisory</a></li><li><a href="services.html#workforce">Workforce readiness</a></li></ul>
     </div>
     <div>
       <h3>Talk to us</h3>

@@ -46,7 +46,7 @@ SPRITE = """<svg class="sprite" aria-hidden="true" focusable="false"><defs>
 <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3 22 20H2z"/><path d="M12 10v4.5M12 17v.5"/></symbol>
 </defs></svg>"""
 
-NAV = [("services.html", "Services"), ("industries.html", "Industries"),
+NAV = [("services.html", "Services"), ("blastshield.html", "BlastShield"), ("industries.html", "Industries"),
        ("resources.html", "Resources"), ("about.html", "About")]
 
 SERVICES = [("asset-visibility", "Asset visibility"), ("threat-detection", "Threat detection & monitoring"),
@@ -108,14 +108,15 @@ def footer():
       <a href="index.html" aria-label="Machina Logic home">{logo("logo logo-light")}</a>
       <p>Operational technology security for the plants, grids, mines, ports and water works that keep African economies running.</p>
       <p class="plate plate-hz">Lagos HQ, working across Africa</p>
+      <p class="ft-partner">Authorised <a href="blastshield.html">BlastWave partner</a></p>
     </div>
     <div>
       <h3>Company</h3>
       <ul><li><a href="about.html">About</a></li><li><a href="industries.html">Industries</a></li><li><a href="resources.html">Resources</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy notice</a></li></ul>
     </div>
     <div>
-      <h3>Services</h3>
-      <ul>{svc}</ul>
+      <h3>Products &amp; services</h3>
+      <ul><li><a href="blastshield.html">BlastShield OT Zero Trust <span class="ft-new">New</span></a></li>{svc}</ul>
     </div>
     <div>
       <h3>Talk to us</h3>
@@ -143,6 +144,8 @@ PAGES = [
      "Machina Logic secures the operational technology behind Africa's power, water, mining, manufacturing, ports and public infrastructure.", "", True, True),
     ("services.html", "services.html", "OT Security Services | Machina Logic",
      "Asset visibility, OT threat monitoring, incident response, risk assessment, compliance advisory and workforce readiness for industrial operators across Africa.", "services.html", True, True),
+    ("blastshield.html", "blastshield.html", "BlastShield OT Zero Trust by BlastWave | Machina Logic",
+     "BlastShield by BlastWave, delivered across Africa by Machina Logic: network cloaking, passwordless MFA and microsegmentation in one OT Zero Trust platform.", "blastshield.html", False, True),
     ("industries.html", "industries.html", "Industries We Protect | Machina Logic",
      "OT security for energy and utilities, oil, gas and mining, manufacturing, water, ports and logistics, and the public sector across Africa.", "industries.html", True, True),
     ("about.html", "about.html", "About Machina Logic | OT Security Built for Africa",
